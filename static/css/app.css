@@ -1,0 +1,27 @@
+body {
+    background: #ECECEC;
+}
+
+.settings {
+    background: #F8F8F8;
+    padding: 30px;
+    -webkit-box-shadow: -1px 0px 10px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 0px 10px -4px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 0px 10px -4px rgba(0, 0, 0, 0.75);
+}
+
+.table th {
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+}
+
+
+.shadow {
+    -webkit-box-shadow: 0px 13px 28px -12px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 13px 28px -12px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 13px 28px -12px rgba(0, 0, 0, 0.75);
+    margin-bottom: 20px;
+}

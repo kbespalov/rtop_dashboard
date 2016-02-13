@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-2 instances_list">
+        <ul class="list-group">
+            <li ng-repeat="instance in instances" class="list-group-item">
+                <a href="#/instances#{{ instance }}" target="_self">{{ instance }}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-10">
+        <div ng-repeat="instance in instances">
+            <div class="panel panel-default">
+                <div class="panel-heading" name="{{ instance }}"><b>Instance:</b> {{ instance }} </div>
+                <div class="panel-body text-center">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <span class="label label-default">RAM USAGE</span>
+                            <canvas id="{{ instance }}" class="chart chart-line" chart-data='ram_values[instance]'
+                                    chart-labels="timeline[instance]" chart-legend="true" chart-series="ram_seria"
+                                    chart-click='onClick' height="150px">
+                            </canvas>
+                        </div>
+                        <div class="col-md-4">
+                            </br>
+                            <span class="label label-default">DISK USAGE</span></br></br></br>
+                            <canvas id="{{ instance }}" class="chart chart-doughnut" chart-data='disk_values[instance]'
+                                    chart-labels="disk_series"
+                                    chart-click='onClick' height="150px" chart-legend="true">
+                            </canvas>
+                        </div>
+                    </div>
+                    <div class="row shadow">
+                        <div class="col-md-12">
+                            <span class="label label-default">CPU USAGE</span>
+                            <canvas id="{{ instance }}" class="chart chart-line" chart-data="cpu_values[instance]"
+                                    chart-labels="timeline[instance]" chart-legend="true" chart-series="cpu_series"
+                                    chart-click='onClick' height="50px">
+                            </canvas>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <table class="table table-responsive table-condensed table-striped">
+                            <tr>
+                                <th ng-repeat="label in proc_labels">{{ label }}</th>
+                            </tr>
+                            <tr ng-repeat="dataSet in current_proc[instance]">
+                                <td ng-repeat="set in dataSet track by $index"><span style="text-align: right;">
+							{{ current_proc[instance][$parent.$index][$index]}}
+						</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
